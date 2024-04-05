@@ -1,0 +1,79 @@
+#!/bin/sh
+
+# path
+export BINDIR="$HOME/.local/bin"
+export PATH="$(find "$BINDIR" -type d -printf %p:)$PATH"
+
+# language
+# export LC_ALL="en_US"
+# export LANG="en_US"
+
+# programs
+export BROWSER="librewolf"
+export EDITOR="nvim"
+export FILE_MANAGER="lf"
+export READER="zathura"
+export TERMINAL="st"
+export WINDOW_MANAGER="dwm"
+
+# default xdg directories
+# export XDG_RUNTIME_DIR="$(mktemp -d "/tmp/$(id -u)-runtime-dir.XXX")"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_DESKTOP_DIR="$HOME/Desktop"
+export XDG_DOCUMENTS_DIR="$HOME/Documents"
+export XDG_DOWNLOAD_DIR="$HOME/Downloads"
+export XDG_MUSIC_DIR="$HOME/Music"
+export XDG_PICTURES_DIR="$HOME/Pictures"
+export XDG_PUBLICSHARE_DIR="$HOME/Public"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_TEMPLATES_DIR="$HOME/Templates"
+export XDG_VIDEOS_DIR="$HOME/Videos"
+
+# clean up $HOME
+# export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
+# export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
+# export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export ANDROID_HOME="$XDG_DATA_HOME/android"
+export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
+export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
+export CABAL_CONFIG="$XDG_CONFIG_HOME/cabal/config"
+export CABAL_DIR="$XDG_DATA_HOME/cabal"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
+export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export GOPATH="$XDG_DATA_HOME/go"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
+export HISTCONTROL=ignorespace
+export HISTFILE="$XDG_DATA_HOME/shell_history"
+export JAVA_HOME="/usr/lib/jvm/default"
+export KDEHOME="$XDG_CONFIG_HOME/kde"
+export KODI_DATA="$XDG_DATA_HOME/kodi"
+export LESSHISTFILE="-"
+export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
+export NODE_PATH="/usr/lib/node_modules"
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_history"
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
+export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+export UNISON="$XDG_DATA_HOME/unison"
+export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+export WINEPREFIX="$XDG_DATA_HOME/wine"
+export XCURSOR_PATH="/usr/share/icons:$XDG_DATA_HOME/icons"
+export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export ZSH_PLUGIN_DIR="/usr/share/zsh/plugins"
+export _JAVA_OPTIONS="-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java"
+
+# program specific
+export FZF_DEFAULT_OPTS="--layout=reverse --height 50%"
+export LS_COLORS="ow=01;34:*.txt=0:ex=0;32:di=01;34"
+export MOZ_USE_XINPUT2="1"
+export QT_QPA_PLATFORMTHEME="gtk2"
+export QT_STYLE_OVERRIDE=""

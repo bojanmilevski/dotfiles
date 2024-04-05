@@ -1,0 +1,8 @@
+[user]
+	name = Bojan Milevski
+	email = bojan@bojanmilevski.com
+	signingkey = bojan@bojanmilevski.com
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
