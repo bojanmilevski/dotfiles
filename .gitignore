@@ -8,6 +8,8 @@
 !.config/fish/config.fish
 !.config/git
 !.config/git/config
+!.config/kitty
+!.config/kitty/kitty.conf
 !.config/mpv
 !.config/mpv/mpv.conf
 !.config/nvim
@@ -29,5 +31,6 @@
 !.librewolf/librewolf.overrides.cfg
 !.local
 !.local/bin
-!.local/bin/***
+!.local/bin/**
 !README.md
+!LICENSE

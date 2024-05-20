@@ -103,7 +103,6 @@ return {
 	keys = {
 		{ '<leader>a', vim.lsp.buf.code_action },
 		{ '<leader>d', vim.lsp.buf.hover },
-		{ '<leader>r', vim.lsp.buf.rename },
 		{ 'gD', vim.lsp.buf.declaration },
 		{ 'gR', vim.lsp.buf.references },
 		{ 'gd', vim.lsp.buf.definition },
@@ -114,11 +113,7 @@ return {
 		{
 			'<leader>i',
 			function()
-				if not vim.lsp.inlay_hint.is_enabled() then
-					vim.lsp.inlay_hint.enable(0, true)
-				else
-					vim.lsp.inlay_hint.enable(0, false)
-				end
+				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 			end,
 		},
 	},
