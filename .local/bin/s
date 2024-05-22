@@ -1,4 +1,4 @@
 #!/bin/sh
 
 [ "$#" -ne 1 ] && echo "One argument needed!" && exit 1
-pacman -Ss "$1"
+paru -Ss "$1"

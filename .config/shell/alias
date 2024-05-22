@@ -1,6 +1,6 @@
 #!/bin/sh
 
-alias vi="$HOME/.local/share/bob/nightly/nvim-linux64/bin/nvim"
+#alias vi="$HOME/.local/share/bob/nightly/nvim-linux64/bin/nvim"
 alias bat="bat --paging=never"
 alias cp="cp --preserve --recursive --verbose"
 alias dd="dd status=progress"
@@ -21,4 +21,5 @@ alias spark-shell="/opt/apache-spark/bin/spark-shell"
 alias te="trash empty --all --force"
 alias tl="trash list"
 alias trr="trash restore --force"
+alias vi="nvim"
 alias wlc="wl-copy"

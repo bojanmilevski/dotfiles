@@ -8,6 +8,12 @@
 !.config/fish/config.fish
 !.config/git
 !.config/git/config
+!.config/gtk-2.0
+!.config/gtk-2.0/settings.ini
+!.config/gtk-3.0
+!.config/gtk-3.0/settings.ini
+!.config/gtk-4.0
+!.config/gtk-4.0/settings.ini
 !.config/kitty
 !.config/kitty/kitty.conf
 !.config/mpv
@@ -32,5 +38,9 @@
 !.local
 !.local/bin
 !.local/bin/**
-!README.md
+!.local/share
+!.local/share/icons
+!.local/share/icons/default
+!.local/share/icons/default/index.theme
 !LICENSE
+!README.md
