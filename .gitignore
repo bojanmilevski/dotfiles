@@ -9,7 +9,7 @@
 !.config/git
 !.config/git/config
 !.config/gtk-2.0
-!.config/gtk-2.0/settings.ini
+!.config/gtk-2.0/gtkrc-2.0
 !.config/gtk-3.0
 !.config/gtk-3.0/settings.ini
 !.config/gtk-4.0
@@ -42,5 +42,4 @@
 !.local/share/icons
 !.local/share/icons/default
 !.local/share/icons/default/index.theme
-!LICENSE
 !README.md
