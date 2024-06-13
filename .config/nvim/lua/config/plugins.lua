@@ -1,15 +1,10 @@
-local lockpath = vim.fn.stdpath 'data' .. '/lazy/lazy-lock.json'
-
 require('lazy').setup('plugins', {
+	lockfile = vim.fn.stdpath 'data' .. '/lazy/lazy-lock.json',
 	debug = false,
-	lockfile = lockpath,
 	concurrency = 50,
 
 	install = {
 		missing = true,
-		colorscheme = {
-			'vscode',
-		},
 	},
 
 	change_detection = {

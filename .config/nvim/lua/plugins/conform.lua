@@ -8,30 +8,12 @@ return {
 		},
 
 		formatters = {
-			black = {
-				command = 'black',
-				stdin = true,
-			},
-
 			clang_format = {
 				command = 'clang-format',
 				stdin = true,
 				args = {
 					'--style=file:' .. os.getenv 'HOME' .. '/.config/clang-format/cpp.yml',
 				},
-			},
-
-			google_java_format = {
-				command = 'google-java-format',
-				stdin = true,
-				args = {
-					'-',
-				},
-			},
-
-			prettier = {
-				command = 'prettier',
-				stdin = true,
 			},
 
 			rustfmt = {
@@ -61,27 +43,19 @@ return {
 			bash = { 'shfmt' },
 			c = { 'clang_format' },
 			cpp = { 'clang_format' },
-			graphql = { 'prettier' },
-			haskell = { 'fourmolu' },
 			html = { 'prettier' },
 			java = { 'google_java_format' },
 			javascript = { 'prettier' },
 			javascriptreact = { 'prettier' },
 			json = { 'prettier' },
-			less = { 'prettier' },
 			lua = { 'stylua' },
 			markdown = { 'prettier' },
-			python = { 'black' },
+			python = { 'ruff_format' },
 			rust = { 'rustfmt' },
-			sbt = { 'scalafmt' },
-			scala = { 'scalafmt' },
-			scss = { 'prettier' },
 			sh = { 'shfmt' },
 			typescript = { 'prettier' },
 			typescriptreact = { 'prettier' },
-			vue = { 'prettier' },
 			yaml = { 'prettier' },
-			zsh = { 'shfmt' },
 		},
 	},
 
@@ -89,7 +63,7 @@ return {
 		{
 			'<leader>f',
 			function()
-				require('conform').format { async = true }
+				require('conform').format { async = true, lsp_fallback = true }
 			end,
 		},
 	},

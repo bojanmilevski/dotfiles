@@ -1,0 +1,5 @@
+#!/bin/sh
+
+[ "$#" -ne 1 ] && echo "Error" && exit 1
+
+pacman -Qqs "$1"

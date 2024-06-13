@@ -2,6 +2,14 @@ return {
 	'https://github.com/neovim/nvim-lspconfig',
 	event = 'VeryLazy',
 
+	dependencies = {
+		{
+			'https://github.com/j-hui/fidget.nvim',
+			event = 'VeryLazy',
+			config = true,
+		},
+	},
+
 	config = function()
 		local servers = {
 			'bashls',
@@ -26,6 +34,16 @@ return {
 			'yamlls',
 		}
 
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+		for _, server in ipairs(servers) do
+			require('lspconfig')[server].setup {
+				capabilities = capabilities,
+			}
+		end
+
 		local icons = {
 			Error = '',
 			Hint = '󰌵',
@@ -33,35 +51,7 @@ return {
 			Warn = '',
 		}
 
-		local on_attach = function(client, buffer) end
-
-		local init_options = {
-			documentFormatting = true,
-		}
-
-		local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-		capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-		capabilities.textDocument.foldingRange = {
-			dynamicRegistration = false,
-			lineFoldingOnly = true,
-		}
-
-		local flags = {
-			allow_incremental_sync = true,
-			debouce_text_changes = 10,
-		}
-
-		for _, server in ipairs(servers) do
-			require('lspconfig')[server].setup {
-				on_attach = on_attach,
-				init_options = init_options,
-				capabilities = capabilities,
-				flags = flags,
-			}
-		end
-
+		-- column diagnostic icons
 		for type, icon in pairs(icons) do
 			local hl = 'DiagnosticSign' .. type
 			vim.fn.sign_define(hl, {
@@ -77,6 +67,7 @@ return {
 			underline = true,
 			update_in_insert = true,
 
+			-- floating text diagnostic icons
 			virtual_text = {
 				prefix = function(diagnostic)
 					if diagnostic.severity == vim.diagnostic.severity.ERROR then
@@ -85,7 +76,7 @@ return {
 						return icons['Warn']
 					elseif diagnostic.severity == vim.diagnostic.severity.INFO then
 						return icons['Info']
-					else
+					elseif diagnostic.severity == vim.diagnostic.severity.HINT then
 						return icons['Hint']
 					end
 				end,
@@ -98,18 +89,23 @@ return {
 				prefix = '',
 			},
 		}
+
+		-- highlight token under cursor
+		vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+			callback = vim.lsp.buf.document_highlight,
+		})
+
+		vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+			callback = vim.lsp.buf.clear_references,
+		})
 	end,
 
 	keys = {
 		{ '<leader>a', vim.lsp.buf.code_action },
-		{ '<leader>d', vim.lsp.buf.hover },
-		{ 'gD', vim.lsp.buf.declaration },
-		{ 'gR', vim.lsp.buf.references },
+		{ 'gr', vim.lsp.buf.references },
 		{ 'gd', vim.lsp.buf.definition },
-		{ 'gi', vim.lsp.buf.implementation },
-		{ 'gn', vim.diagnostic.goto_next },
-		{ 'gp', vim.diagnostic.goto_prev },
 		{ 'gt', vim.lsp.buf.type_definition },
+		{ 'crn', vim.lsp.buf.rename },
 		{
 			'<leader>i',
 			function()

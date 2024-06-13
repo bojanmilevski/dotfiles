@@ -1,7 +1,11 @@
 return {
 	'https://github.com/nvim-telescope/telescope.nvim',
-	dependencies = 'https://github.com/nvim-lua/plenary.nvim',
 	event = 'VeryLazy',
+
+	dependencies = {
+		'https://github.com/nvim-lua/plenary.nvim',
+		'https://github.com/nvim-tree/nvim-web-devicons',
+	},
 
 	config = {
 		extensions = {
@@ -16,9 +20,23 @@ return {
 
 	keys = {
 		{
-			'<leader>t',
+			'<leader>tg',
 			function()
 				vim.cmd 'Telescope live_grep'
+			end,
+		},
+
+		{
+			'<leader>tf',
+			function()
+				vim.cmd 'Telescope find_files'
+			end,
+		},
+
+		{
+			'<leader>td',
+			function()
+				require('telescope.builtin').lsp_definitions()
 			end,
 		},
 	},

@@ -14,6 +14,6 @@ return {
 	},
 
 	keys = {
-		{ '<leader>e', vim.cmd.TroubleToggle },
+		{ '<leader>e', '<cmd>Trouble diagnostics toggle focus=true<cr>' },
 	},
 }

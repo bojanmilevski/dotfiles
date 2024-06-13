@@ -3,9 +3,9 @@ return {
 	dependencies = 'https://github.com/tpope/vim-repeat',
 	event = 'VeryLazy',
 
-	config = function()
-		require('leap').opts.highlight_unlabeled_phase_one_targets = true
-	end,
+	config = {
+		highlight_unlabeled_phase_one_targets = true,
+	},
 
 	keys = {
 		{

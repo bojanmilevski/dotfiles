@@ -3,17 +3,17 @@ return {
 	event = 'VeryLazy',
 
 	dependencies = {
-		'rafamadriz/friendly-snippets',
-		'saadparwaiz1/cmp_luasnip',
+		'https://github.com/rafamadriz/friendly-snippets',
+		'https://github.com/saadparwaiz1/cmp_luasnip',
+	},
+
+	opts = {
+		enable_autosnippets = true,
+		history = true,
+		updateevents = 'TextChanged,TextChangedI',
 	},
 
 	config = function()
-		require('luasnip').config.setup {
-			enable_autosnippets = true,
-			history = true,
-			updateevents = 'TextChanged,TextChangedI',
-		}
-
 		require('luasnip.loaders.from_vscode').lazy_load()
 	end,
 

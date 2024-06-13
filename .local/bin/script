@@ -1,0 +1,15 @@
+#!/bin/sh
+
+[ "$#" -ne 1 ] && echo "Only 1 argument required!" && exit 1
+
+FILE="$BINDIR/$1.sh"
+
+if [ -f "$FILE" ]
+then
+	"$EDITOR" "$FILE"
+else
+	touch "$FILE"
+	echo "#!/bin/sh" > "$FILE"
+	chmod +x "$FILE"
+	"$EDITOR" "$FILE"
+fi

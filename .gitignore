@@ -22,6 +22,8 @@
 !.config/nvim/**
 !.config/python
 !.config/python/pythonrc
+!.config/ruff
+!.config/ruff/ruff.toml
 !.config/rustfmt
 !.config/rustfmt/rustfmt.toml
 !.config/shell
